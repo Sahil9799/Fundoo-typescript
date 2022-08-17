@@ -1,0 +1,58 @@
+.outer {
+    border: red 2px;
+    height: 97vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner {
+    border: solid gray 2px;
+    height: 60%;
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.form{
+    /* border: solid green 2px; */
+    height: 100%;
+    width: 60%;
+}
+
+.credentials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 5px;
+  
+    
+}
+
+.gmail{
+    margin-top: 15px;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    margin-left: 5px;
+    /* border: solid blue; */
+}
+
+
+
+.image{
+    /* border: solid green 2px; */
+    height: 100%;
+    width: 40%;
+}
+
+.password{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   
+}
+
