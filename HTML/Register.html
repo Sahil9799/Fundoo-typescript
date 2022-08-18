@@ -7,59 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FundooNotes</title>
     <link rel="stylesheet" href="../Style/Register.css">
+    <script src="../Script/Register.js" ></script>    
 </head>
 
 <body>
-    <div class="outer">
-
-        <div class="inner">
-
-            <div class="form">
-                <h3 class="heading">
-                    <span style="color: rgb(9, 137, 196)">F</span>
-                    <span style="color: rgb(216, 65, 65)">u</span>
-                    <span style="color: rgb(219, 154, 32)">n</span>
-                    <span style="color: rgb(209, 26, 117)">d</span>
-                    <span style="color: rgb(142, 151, 14)">o</span>
-                    <span style="color: rgb(39, 193, 78)">o</span>
-                </h3>
-                <h3>Create your fundoo account</h3>
-                <div class="credentials">
-                    <input type="text" placeholder="First name">
-                    <input type="text" placeholder="Last name">
-                </div>
-                <div class="gmail">
-                    <input type="text" placeholder="Username">
-                </div>
-                <small>You can use letters, numbers & periods</small><br><br>
-                <button class="alternate email">Use my current email address instead</button><br><br><br>
-
-                <div class="password">
-                    <input type="text" placeholder="Password">
-                    <input type="text" placeholder="Confirm">
-                </div>
-                <small>Use 8 or more characters with a mix of letters, numbers & symbols</small><br>
-
-                <input type="checkbox" id="pass">
-                <label for="pass"> Show password</label><br><br>
-                <div class="buttons">
-                    <button>Sign in instead</button>
-                    <button>Next</button>
-                </div>
-
-
+    <div class="main-body">
+        <div class="main-container">
+           <div class="left-container">
+            <div class="header">
+                <div class="form-logo">
+                    <span  style="color: #4169e1;">F</span>
+                    <span  style="color: #d52b2b;">u</span>
+                    <span  style="color: #ff8c00;">n</span>
+                    <span  style="color: #4169e1;">d</span>
+                    <span  style="color: #008000;">o</span>
+                    <span  style="color: #d52b2b;">N</span>
+                    <span  style="color: #ff8c00;">o</span>
+                    <span  style="color: #4169e1;">t</span>
+                    <span  style="color: #008000;">e</span>
+                  </div>
+                  <span class="header-text">Create your FundoNote Account</span>
             </div>
-
-
-            <div class="image">
-                <img src="../assets/google.svg" alt="">
-
-
-            </div>
-
-
-
-
+             <form class="registration-form">
+                <div class="form-name">
+                    <div class="name">
+                        <input type="fname" required placeholder="First name" >
+                    </div>
+                    <div class="name">
+                        <input type="lname" required placeholder="Last name">
+                    </div>
+                </div>
+                <div class="user-name">
+                    <input type="username" required placeholder="Username">
+                    <span class="form-hint1">You can use letters, numbers & periods</span>
+                </div>
+                <a href="" class="form-link">Use my current email address instead</a>
+                <div class="form-pass">
+                    <div class="pass">
+                        <input type="text" class="password" id="pass" required placeholder="Password">
+                    </div>
+                    <div class="pass">
+                        <input type="text" class="password" id="Cpass" required  placeholder="Confirm">
+                    </div>
+                </div>
+                <a class="form-hint2">Use 8 or more characters with a mix of letters, numbers & symbols</a>
+                <div class="form-checkbox">
+                    <input type="checkbox" class="checkbox" onclick="show()">
+                    <label class="container">Show password </label>           
+                </div>
+                <div class="form-btn">
+                    <a class="form-btn1">Sign in instead</a>
+                    <input type="submit" value="Create">
+                </div>
+             </form>
+           </div>
+           <div class="right-container">
+                <img class="side-img" src="../assets/google.svg">
+                <span class="side-img-text">One Account. All of Fundo working for you.</span>
+           </div>
         </div>
 </body>
 
