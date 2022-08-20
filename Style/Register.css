@@ -35,16 +35,8 @@
     font-family: arial;
     font-weight: 550;
 }
-.footer-link {
-    display: flex;
-    justify-content: space-between;
-    width: 21vh;   
-}
 
-.lang-select{
-    border: none;
-    font-size: 12px;
-}
+
 
 
 .left-container{
