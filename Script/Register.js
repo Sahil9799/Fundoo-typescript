@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded',()=>{
   
-    console.log("=> Connected to Registration.js");
+    console.log("Connected js");
 
     let regexName = RegExp('^[A-Z]{1}[a-z]{2,}$');
     let regexEmail=RegExp('^([A-Za-z0-9]{3,20})([.][A-Za-z0-9]{1,10})*([@][A-Za-z]{2,5})+[.][A-Za-z]{2,3}([.][A-Za-z]{2,3})?$');
@@ -11,7 +11,9 @@ window.addEventListener('DOMContentLoaded',()=>{
     let userName = document.getElementById('Uname');
     let password = document.getElementById('pass');
     let Cpassword = document.getElementById('Cpass');
-
+    
+    let register = document.getElementById('create');
+   
 
     let fn=0, ln=0, un=0, psw=0, cnfpw=0;
     
@@ -46,20 +48,29 @@ window.addEventListener('DOMContentLoaded',()=>{
 
   userName.addEventListener('keyup',()=>{
     console.log(userName.id);
-      ln=check(userName,'beforeinput','afterinput','UsernameHint',"Enter Valid User name","You can use letters, numbers & periods",regexEmail )
+      un=check(userName,'beforeinput','afterinput','UsernameHint',"Enter Valid User name","You can use letters, numbers & periods",regexEmail )
   });
 
   password.addEventListener('keyup',()=>{
     console.log(password.id);
-      ln=check(password,'beforeinput','afterinput','passHint',"Enter Valid Password","Use 8 or more characters with a mix of letters, numbers & symbols",regexPass )
+      psw=check(password,'beforeinput','afterinput','passHint',"Enter Valid Password","Use 8 or more characters with a mix of letters, numbers & symbols",regexPass )
   });
 
   Cpassword.addEventListener('keyup',()=>{
     console.log(Cpassword.id);
-      ln=check(Cpassword,'beforeinput','afterinput','passHint',"Enter Valid Confirm password","Use 8 or more characters with a mix of letters, numbers & symbols",regexPass )
+      cnfpw=check(Cpassword,'beforeinput','afterinput','passHint',"Enter Valid Confirm password","Use 8 or more characters with a mix of letters, numbers & symbols",regexPass )
   });
 
-
+ function matchpassword(cpass, beforeinput, afterinput, spanId, errMsg, sucessMsg) {
+    if (password.value != cpass.value) {
+      a = showError(cpass.id, spanId, errMsg, beforeinput, afterinput);
+      return 0;
+    }
+    else {
+      a = showSuccess(cpass.id, spanId, sucessMsg, beforeinput, afterinput);
+      return 1;
+    }
+  }
 
   function check(input,beforeinput,afterinput,spanId,errMsg,sucessMsg,regex){
     if (!regex.test(input.value)) {
@@ -72,8 +83,37 @@ window.addEventListener('DOMContentLoaded',()=>{
    };
 
 
+
+
+register.addEventListener('click', () => {
+  let Userdata = {
+    Firstname: firstName.value,
+    Lastname: lastName.value,
+    Email: userName.value,
+    Password: password.value
+  }
+  console.log(Userdata);
+  $.ajax({
+    url: "https://localhost:44349/User/Register",
+    type: "POST",
+    data: JSON.stringify(Userdata),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    success: function (result) {
+      console.log(result);
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  })
 })
 
+function Resetpage(){
+  document.getElementById('registrationForm').reset();
+}
+
+})
 function show(){
 
   var password= document.getElementById('pass');
@@ -88,5 +128,6 @@ function show(){
     confirm.type="password";
   }
 }
+
 
 

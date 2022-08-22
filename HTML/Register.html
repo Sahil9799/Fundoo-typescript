@@ -8,6 +8,7 @@
     <title>FundooNotes</title>
     <link rel="stylesheet" href="../Style/Register.css">
     <script src="../Script/Register.js" ></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -25,41 +26,47 @@
                   </div>
                   <span class="header-text">Create your Fundoo account</span>
             </div>
-             <form class="registration-form">
+            <form class="registration-form" action="#" id="registrationForm">
                 <div class="form-name">
-                    <div class="Fname">
-                        <input type="fname" class="beforeinput" class="afterinput" id="Fname" placeholder="First name *" >
+                    <div id="div1">
+                        <input type="fname" class="beforeinput" class="afterinput" id="Fname"
+                            placeholder="First name *">
                         <span id="nameHint1" class="Errmsg"></span>
                     </div>
-                    <div class="Lname">
-                        <input type="lname" class="beforeinput" class="afterinput" id="Lname" placeholder="Last name *">
-                        <span id="nameHint2"  class="Errmsg" style="padding-left: 20px;"></span>
+                    <div id="div2">
+                        <input type="lname" class="beforeinput" class="afterinput" id="Lname"
+                            placeholder="Last name *">
+                        <span id="nameHint2" class="Errmsg" style="padding-left: 20px;"></span>
                     </div>
                 </div>
-                <div class="user-name">
-                    <input type="username" class="beforeinput" class="afterinput" id="Uname" placeholder="Username123@gmail.com *">
-                    <span id="UsernameHint" class="form-hint" class="Errmsg" >You can use letters, numbers & periods</span>
-                   
+                <div id="div3">
+                    <input type="username" class="beforeinput" class="afterinput" id="Uname"
+                        placeholder="Username123@gmail.com *">
+                    <span id="UsernameHint" class="form-hint" class="Errmsg">You can use letters, numbers &
+                        periods</span>
                 </div>
                 <a href="" class="form-link">Use my current email address instead</a>
                 <div class="form-pass">
-                    <div class="pass">
-                        <input type="text" class="password" id="pass" required placeholder="Password">
+                    <div id="div4">
+                        <input type="password" class="beforeinput password" class="afterinput" id="pass"
+                            placeholder="Password *">
                     </div>
-                    <div class="pass">
-                        <input type="text" class="password" id="Cpass" required  placeholder="Confirm">
+                    <div id="div5">
+                        <input type="password" class="beforeinput password" class="afterinput" id="Cpass"
+                            placeholder="Confirm *">
                     </div>
                 </div>
-                <a class="form-hint2">Use 8 or more characters with a mix of letters, numbers & symbols</a>
+                <a id="passHint" class="form-hint" class="Errmsg">Use 8 or more characters with a mix of letters,
+                    numbers & symbols</a>
                 <div class="form-checkbox">
                     <input type="checkbox" class="checkbox" onclick="show()">
-                    <label class="container">Show password </label>           
+                    <label class="container">Show password </label>
                 </div>
                 <div class="form-btn">
                     <a href="http://127.0.0.1:5500/HTML/sign-in.html" class="form-btn1">Sign in instead</a>
-                    <input type="submit" value="Create">
+                    <button id="create" class="submit-btn">Create</button>
                 </div>
-             </form>
+            </form>
            </div>
            <div class="right-container">
                 <img class="side-img" src="../assets/google.svg">
