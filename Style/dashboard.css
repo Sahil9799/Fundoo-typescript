@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+
+
+
+.toolbar {
+  position: fixed;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+  border-bottom: 1px solid #dadce0;
+  padding: 20px;
+  color: #5f6368;
+  background-color: white;
+  z-index: 2;
+}
+
+
+button img{
+  width: 30px;
+}
+
+button{
+  border: none;
+  opacity: 0.6;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: .3s;
+  cursor: pointer;
+}
+
+button:hover{
+  opacity: 1;
+  background-color: #e5e5e5;
+}
+
+
+.menu {
+display: flex;
+align-items: center;
+}
+#menu{
+  margin-right: 30px;
+}
+.logo-text {
+font-size: 1.6rem;
+font-family: "Roboto", sans-serif;
+}
+
+
+.search {
+background: rgb(241, 243, 244);
+width: 692px;
+height: 48px;
+border-radius: 6px;
+display: flex;
+align-items: center;
+}
+.search-text{
+  border: none;
+  background-color: rgb(241, 243, 244);
+  outline: none;
+  font-size: large;
+  width: 87%;
+  height: 100%;
+}
+.search-icon img{
+  width: 25px;
+  opacity: 0.6;
+}
+.search-icon{
+  padding: 10px;
+  padding-top: 15px;
+}
+
+
+
+main{
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  z-index: 1;
+}
+
+.side-nav{
+  position: absolute;
+  left: 0rem;
+  width: 85px;
+  height: calc(100vh - 4rem);
+  border-top: 2px solid white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+/* .side-nav.active{
+  width: 250px;
+} */
+
+.nav-list{
+  /* border: 1px solid black; */
+  list-style: none;
+  margin-top: 15px;
+}
+
+.nav-list-item{
+  /* border: 1px solid black; */
+  width: 100%;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  height: 55px;
+}
+.nav-list-item:hover{
+  background-color: rgb(241, 243, 244);
+  border-radius: 0px 50px 50px 0px;
+}
+
+.nav-list-item i img{
+  /* border: 1px solid black; */
+  width: 35px;
+  height: 35px;    
+}
+
+.nav-list-item span{
+  /* border: 1px solid black; */
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+
+#display-area{
+  position: relative;
+  padding-left: 20px;
+  margin-left: 85px;
+  transition: 0.3s;
+}
+
+
+
+.note{
+  position: relative;
+  background-color: white;
+  top: 30px;
+  left: 25%;
+  width: 700px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 5px 0.5px darkgray;    
+
+}
+.note .create-note{
+  margin: 0px 0px 4px 13px;
+  font-size: 17px;
+  font-family: Roboto, Arial, sans-serif;
+  border:0;
+  outline: 0;
+  border-radius: 8px;
+  width: 90%;
+} 
+
+::-webkit-input-placeholder {
+  text-decoration: none solid rgb(19, 20, 21);
+  font-weight: 550;
+}
+
+.create-note-header{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.create-note-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+
+.create-note-foote img{ 
+width: 17px;
+}
+
+.create-note-foote button{
+  margin-right: 10px;
+}
+
+.icons{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.icons button{
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+.icons button img{
+  width: 25px;
+}
+
+#btn1{
+  padding-top: 10px;
+}
+
+textarea{
+  margin-top: 10%;
+ padding-top: 16px; 
+ resize:none; 
+ outline: none;
+}
+
+textarea::-webkit-scrollbar{
+  width: 0px;
+}
+
+.close button{
+  border: none;
+  border-radius: 5px;
+  opacity: 0.8;
+  width: 85px;
+  height: 40px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 18px;
+}

@@ -61,7 +61,7 @@ Login.addEventListener('click', () => {
   console.log(Logindata);
   
   $.ajax({
-    url: "https://localhost:44349/User/Login/sahishettyya%40gmail.com/Sahil%40001",
+    url: `https://localhost:44349/User/Login/${Logindata.Email}/${Logindata.Password}`,
     type: "POST",
     data: JSON.stringify(Logindata),
     headers: {
