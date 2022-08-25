@@ -13,119 +13,108 @@
 
 <body>
     <header>
-        <nav class="toolbar">
-            <div class="menu">
-                <div id="menu"><button onclick="menutoggle()" id="toggle">
-                        <img src="../assets/menu_FILL0_wght400_GRAD0_opsz48.svg"></img></button></div>
-                <img src="../assets/icons8-google-keep.svg">
-                <span class="logo-text">Fundoo</span>
+        <div class="left-part">
+            <button class="menu-icon tooltip" id="btn">
+                <img src="/assets/menu_FILL0_wght400_GRAD0_opsz48.svg" style="opacity: 0.6;width:24px; height: 26px;" alt="">
+                <span class="tooltiptext">Menu</span>
+            </button>
+            <img src="/assets/icons8-google-keep.svg" style="margin-left:23px ;width:27px; height: 36px;" alt="">
+            <span class="logo-text">FundooNotes</span>
+            <div class="serch-box">
+                <button class="search-icon  tooltip">
+                    <img src="/assets/search_FILL0_wght400_GRAD0_opsz48 (1).svg" />
+                    <span class="tooltiptext">Search</span>
+                </button>
+                <input class="search-input" placeholder="Search" autocomplete="off" />
+                <button class="close-icon hide" >
+                    <img style="width: 22px;" src="/assets/close_FILL0_wght400_GRAD0_opsz48.svg" />
+                </button>
             </div>
-
-            <div class="search">
-                <i class="search-icon"><img src="../assets/search_FILL0_wght400_GRAD0_opsz48 (1).svg"></i>
-                <input class="search-text" type="text" placeholder="Search" />
-                <i class="search-icon" id="cancel"><img src="../assets/close_FILL0_wght400_GRAD0_opsz48.svg"></i>
-            </div>
-
-            <div class="tools">
-                <button><img src="../assets/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
-                <button><img src="../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg"></button>
-                <button><img src="../assets/settings_FILL0_wght400_GRAD0_opsz48 (1).svg"></button>
-            </div>
-
-            <div class="user">
-                <button><img src="../assets/apps_FILL0_wght400_GRAD0_opsz48.svg"></button>
-                <button><img src="../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg"></button>
-            </div>
-        </nav>
+        </div>
+        <div class="right-area">
+            <button>
+                <img src="/assets/refresh_FILL0_wght400_GRAD0_opsz48.svg" />
+            </button>
+            <button>
+                <img src="/assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg" />
+            </button>
+            <button>
+                <img src="/assets/settings_FILL0_wght400_GRAD0_opsz48 (1).svg" />
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button>
+                <img src="/assets/apps_FILL0_wght400_GRAD0_opsz48 (1).svg" />
+            </button>
+            <button>
+                <img style="width: 30px;" src="/assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg" />
+            </button>
+        </div>
     </header>
-    <main>
-        <nav id="side-nav" class="side-nav">
-            <div class="side-nav-content">
-                <ul class="nav-list">
-                    <li class="nav-list-item">
-                        <i><img src="../assets/lightbulb_FILL0_wght400_GRAD0_opsz48.svg"></i>
-                        <span>
-                            <a href="#">Notes</a>
-                        </span>
-                    </li>
-                    <li class="nav-list-item">
-                        <i><img src="../assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg"></i>
-                        <span>
-                            <a href="#">Reminders</a>
-                        </span>
-                    </li>
-                    <li class="nav-list-item">
-                        <i><img src="../assets/edit_FILL0_wght400_GRAD0_opsz48.svg"></i>
-                        <span>
-                            <a href="#">Edit labels</a>
-                        </span>
-                    </li>
-                    <li class="nav-list-item">
-                        <i><img src="../assets/archive_FILL0_wght400_GRAD0_opsz48.svg"></i>
-                        <span>
-                            <a href="#">Archive</a>
-                        </span>
-                    </li>
-                    <li class="nav-list-item">
-                        <i><img src="../assets/delete_FILL0_wght400_GRAD0_opsz48.svg"></i>
-                        <span>
-                            <a href="#">Bin</a>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-       
-
-        <div id="display"></div>
-
-        <div class="note">
-            <form>
-                <div class="create-note-header">
-                    <input class="create-note" onclick="openCard()" id="btn1" type="text" placeholder="Title" />
-                    <button>
-                        <img src="../assets/push_pin_FILL0_wght400_GRAD0_opsz48 (1).svg" />
+    <div class="side-navbar" id="navbar">
+        <ul class="nav-list">
+            <li id="notes">
+                <a href="#">
+                    <i><img src="/assets/lightbulb_FILL0_wght400_GRAD0_opsz48.svg" alt=""></i>
+                    <span class="link-name">Notes</span>
+                </a>
+            </li>
+            <li id="reminder">
+                <a href="#">
+                    <i class="notes"><img src="/assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg" alt=""></i>
+                    <span class="link-name">Reminders</span>
+                </a>
+            </li>
+            <li id="editLabel">
+                <a href="#">
+                    <i class="notes"><img src="/assets/edit_FILL0_wght400_GRAD0_opsz48.svg" alt=""></i>
+                    <span class="link-name">Edit Labels</span>
+                </a>
+            </li>
+            <li id="archive">
+                <a href="#">
+                    <i class="notes"><img src="/assets/archive_FILL0_wght400_GRAD0_opsz48.svg" alt=""></i>
+                    <span class="link-name">Archive</span>
+                </a>
+            </li>
+            <li id="trash">
+                <a href="#">
+                    <i class="notes"><img src="/assets/delete_FILL0_wght400_GRAD0_opsz48.svg"  alt=""></i>
+                    <span class="link-name">Trash</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="dashboard-content">
+        <div class="create-note" class="expand">
+            <input type="text" id="title" class="create1" autocomplete="off" placeholder="Take a note...">
+            <textarea type="text" id="description" class="create2" autocomplete="off" placeholder="Take a note..." ></textarea>
+            <div id="footer" class="footer-content">
+                <div class="footer-icons">
+                    <button id="Reminde me">
+                        <img src="/assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg" />
                     </button>
+                    <button id="Collaborator" class="header-icon">
+                        <img src="/assets/person_add_FILL0_wght400_GRAD0_opsz48.svg" />
+                    </button>
+                    <button id="Background options" class="bg-color">
+                        <img src="/assets/palette_FILL0_wght400_GRAD0_opsz48.svg" />
+                    </button>
+                    <button id="Add image">
+                        <img src="/assets/image_FILL0_wght400_GRAD0_opsz48.svg" />
+                    </button>
+                    <button id="Archive">
+                        <img src="/assets/archive_FILL0_wght400_GRAD0_opsz48.svg" />
+                    </button>
+                    <button id="More">
+                        <img src="/assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg" />
+                    </button>
+                    
                 </div>
-                <div class="create-note-body">
-                    <textarea class="create-note" id="btn2" type="text" placeholder="Take a note..."></textarea>
-                </div>
-                <div class="create-note-footer">
-                    <div class="icons">
-                        <button>
-                            <img src="../assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg" />
-                        </button>
-                        <button>
-                            <img src="../assets/person_add_FILL0_wght400_GRAD0_opsz48.svg" />
-                        </button>
-                        <button>
-                            <img src="../assets/palette_FILL0_wght400_GRAD0_opsz48.svg" />
-                        </button>
-                        <button>
-                            <img src="../assets/image_FILL0_wght400_GRAD0_opsz48.svg" />
-                        </button>
-                        <button>
-                            <img src="../assets/archive_FILL0_wght400_GRAD0_opsz48.svg" />
-                        </button>
-                        <button>
-                            <img src="../assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg" />
-                        </button>
-                        <button>
-
-                    </div>
-                    <div class="close">
-                        <button onclick="closeCard()">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </form>
-
+                <button class="close-btn">Close</button>
+            </div>
         </div>
-        </div>
-    </main>
-
+    </div>
+   >
 </body>
+
 
 </html>

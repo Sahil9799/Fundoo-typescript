@@ -1,51 +1,109 @@
-var nav = false;
-function menutoggle(){
-    
-    
-    nav ? closeNav() : openNav();
-}
 
-function openNav(){
-    document.getElementById("side-nav").style.width = "250px";
-    
-    nav = true;
-}
+window.addEventListener('DOMContentLoaded', () => {
 
-function closeNav(){
-    document.getElementById("side-nav").style.width = "78px";
-    
-    nav = false;
-}
-
-
-function openCard(){
-  document.getElementsByClassName("create-note")
-}
-
-function closeCard(){
-  
-}
-
-var noteArray;
-
-
-function getAllNotes(){
+    console.log("=> Connected to Dashboard.js");
     let token = localStorage.getItem('token');
+    getAllNotes();
 
-    $.ajax({
-        url:'https://localhost:44349/Note',
-        type:'GET',
-        headers:{
-            'Content-Type': 'application/json',
-            'Authorization': token
-        },
-        success: function(result){
-            console.log(result.data);
-            noteArray = result.data;
-        },
-        error: function(error){
-            console.log(error);
-        }
+    let navbar = document.querySelector(".side-navbar");
+    let btn = document.querySelector('#btn');
+
+    let title = document.getElementById('title');
+    let description = document.getElementById('description');
+    let color = 'Blue';
+
+    console.log(title.value);
+
+    let createnote = document.querySelector('.create-note');
+    let closebtn = document.querySelector('.close-btn');
+    let oncreate=document.querySelector('.create1');
+    let desc=document.querySelector('.create2');
+
+    let closeIcon=document.querySelector('.close-icon');
+    let serchbox=document.querySelector('.search-input');
+
+    var noteArray;
+
+    btn.onclick = function () {
+        navbar.classList.toggle("opened");
+    }
+
+    serchbox.addEventListener('focus',()=>{
+        closeIcon.classList.remove('hide')
     })
-}
+    serchbox.addEventListener('blur',()=>{
+        closeIcon.classList.add('hide');
+    })
 
+    oncreate.addEventListener('click', () => {
+       toggleNOteFields();
+    })
+
+    closebtn.addEventListener('click', () => {
+        let notedata = {
+            title: title.value,
+            description: description.value,
+            colour:color
+          }
+          console.log(notedata);
+        $.ajax({
+            url: 'https://localhost:44349/Note',
+            type: 'POST',
+            data: JSON.stringify(notedata),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            success: function (result) {
+                console.log(result);
+                resetNoteFields();
+                toggleNOteFields();
+                getAllNotes();
+              },
+            error: function (error) {
+                console.log(error);
+                toggleNOteFields();
+            }
+        })
+    })
+
+    function resetNoteFields()
+    {
+        document.getElementById('title').value='';
+        document.getElementById('description').value='';
+    }
+
+    function toggleNOteFields()
+    {
+        createnote.classList.toggle('expand');
+        if(createnote.classList.contains('expand'))
+        {
+            document.getElementById('title').placeholder = 'Title';
+        }
+        else
+        {
+            document.getElementById('title').placeholder = 'Take a note...';
+            resetNoteFields();
+        }
+    }
+
+    function getAllNotes() {
+        $.ajax({
+            url: 'https://localhost:44349/Note',
+            type: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            success: function (result) {
+                console.log(result);
+                noteArray=result.data;
+                noteArray.reverse();
+              },
+              error: function (error) {
+                console.log(error);
+              }
+        })
+    }
+
+})
