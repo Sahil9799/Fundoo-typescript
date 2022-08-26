@@ -63,7 +63,7 @@ header button{
   font-size: 16px;
   height:28px;
   background-color: rgb(240, 240, 240);
-  width: 76vh;
+  width: 80vh;
   outline: none;
 }
 
@@ -71,14 +71,14 @@ header button{
   margin: 0px 10px 0px 8px;
   opacity: 0.7;
 }
-
-.close-icon{
-  margin-top: 3px;
+#Search::-webkit-search-cancel-button{
+  position:relative;
+  right:2px;  
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
 }
 
-.hide{
-  visibility: hidden;
-}
 
 header img{
   width: 25px;
@@ -122,13 +122,11 @@ padding-right: 2px;
   height: 48px;
 }
 
-.nav-list li:focus{
-background-color: lightgrey;
-}
+
 
 .nav-list li a i img{
 margin-left: 25px;
-padding-top: 4px;
+padding-top: 10px;
 }
 
 .nav-list li a i{
@@ -137,19 +135,14 @@ height: 42px;
 
 .side-navbar ul li a{
   display: flex;
+  align-items: center;
   text-decoration: none;
   color: black;
 }
 
-.side-navbar.opened ul li a:hover{
-background-color: rgb(237, 234, 234);
-border-radius: 0px 40px 40px 0px;
-}
 
-.side-navbar ul li a i img:hover{
-background-color: rgb(237, 234, 234);
-border-radius: 40px 40px 40px 40px;
-
+.buttonDisabled {
+  pointer-events: none;
 }
 
 .link-name{
@@ -163,29 +156,29 @@ border-radius: 40px 40px 40px 40px;
 .dashboard-content{
 display: flex;
 flex-direction: column;
-position: fixed;
-top: 24%;
-left: 59vh;
+position: absolute;
+top: 190px;
+left: 460px;
 transform: translate(-17%,-17%);
 width: 82%;
 height: 90%;
 }
 
 .create-note{
-margin: 27.5px 0 2px 19.7%;
-width: 47.5%;
-height: 6.5%;
-box-shadow: 0px 1px 5px 0.5px darkgray;    
-overflow: hidden;
-border-radius: 5px;
-transition: all 0.2s ease-in-out;
+  margin: 27.5px 0 25px 19.7%;
+  width: 600px;
+  height: 45px;
+  box-shadow: 0px 1px 5px 0.5px darkgray;    
+  overflow: hidden;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
 }
 
 .create-note.expand{
-height: 18.8%;
+height: 130px;
 }
 
-.create-note input{
+.create-note div input{
 font-family: 'Open Sans';
 font-weight: 500;
 width: 96.5%;
@@ -194,6 +187,29 @@ outline: none;
 border: none;
 padding: 2px 0 0 14.5px;
 font-size: 16px;
+}
+
+/* .note-title{
+  display: flex;
+  justify-content: space-between;
+} */
+
+.pinnote{
+  visibility: hidden;
+  border: none;
+  background: transparent;
+  margin: 8px 12px 0px 0px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.pinnote:hover{
+   background-color: lightgray;
+   border-radius: 50%;
+}
+
+.show{
+  visibility: visible;
 }
 
 .footer-content{
@@ -207,6 +223,7 @@ margin-top: 3px;
  text-decoration: none;
  border: none;
  background: transparent;
+ padding-top: 3px;
 }
 
 .close-btn:hover{
@@ -215,10 +232,11 @@ transition: all 0.2s;
 }
 
 .close-btn{
-margin-right: 21px;
-font-size: 14px;
-width: 70px;
-cursor: pointer;
+  margin-top: -10px;
+  margin-right: 21px;
+  font-size: 14px;
+  width: 70px;
+  cursor: pointer;
 }
 
 .footer-content button img{
@@ -267,9 +285,84 @@ padding: 5px 0;
 position: absolute;
 z-index: 1;
 top: 40px;
-left: -30%;
+left: -20%;
 }
 
 .tooltip:hover .tooltiptext {
 visibility: visible;
+}
+
+.display-notes{
+  display: flex;
+  flex-flow: wrap;
+  width: 90%;
+  height: 300px;
+}
+
+.other-notes{
+  display: flex;
+  position: relative;
+  top:10px;
+  left: 40px;
+  flex-flow: wrap;
+  width: 90%;
+  min-height: 100px;
+  max-height: auto;
+}
+
+.display-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 15px 15px 0px 0px;
+  padding: 10px 10px 8px 10px;
+  width: 228px;
+  min-height: 100px;
+  max-height: auto;
+  overflow-wrap: break-word;
+  border-radius: 5px;
+  border:1px solid lightgray;
+}
+
+.display-div:hover.card-footer{
+  visibility: visible;
+}
+
+.display-div:hover.card-footer-trash{
+  visibility: visible;
+}
+
+.p1{
+  margin-top: -1px;
+  margin-bottom: 4px;
+}
+
+.p2{
+  min-height: 40px;
+  margin-top: 1px;
+  margin-bottom: 3px;
+}
+
+.card-footer{
+  display: flex;
+  visibility: hidden;
+  justify-content: space-between;
+  padding: 10px 0px 0px 0px ;
+}
+
+.card-footer img{
+  width: 19.5px;
+  opacity: 0.8;
+}
+
+.card-footer-trash{
+  display: flex;
+  visibility: hidden;
+  padding: 10px 0px 0px 0px ;
+}
+
+.card-footer-trash img{
+  width: 19.5px;
+  opacity: 0.8;
+  margin-right: 18px;
 }

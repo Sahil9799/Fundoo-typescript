@@ -22,6 +22,11 @@ window.addEventListener('DOMContentLoaded', () => {
     let closeIcon=document.querySelector('.close-icon');
     let serchbox=document.querySelector('.search-input');
 
+    const displaytnotes=document.querySelector('.notes');
+    const Remindernotes=document.querySelector('.Remindernotes');
+    const Archivenotes=document.querySelector('.Archivenotes');
+    const Trashnotes=document.querySelector('.Trashnotes');
+
     var noteArray;
 
     btn.onclick = function () {
@@ -105,5 +110,117 @@ window.addEventListener('DOMContentLoaded', () => {
               }
         })
     }
+    displaytnotes.addEventListener('click',()=>{
+        createnote.style.display = 'block'; 
+        document.getElementById('Notes').classList.add('display-notes');
+        document.getElementById('Notes').classList.remove('other-notes');
+        notes=noteArray.filter((x)=>{
+            return x.isTrash===false && x.isArchive===false;
+        });
+        console.log(notes);
+        displayAllNotes(notes);
+    })
+
+    
+    Remindernotes.addEventListener('click',()=>{
+        console.log(' showing reminder notes ');
+        createnote.style.display = 'block'; // sets the visibility of create-note box to hide
+        document.getElementById('Notes').classList.remove('display-notes');
+        document.getElementById('Notes').classList.add('other-notes');
+        notes=noteArray.filter((x)=>{
+            return x.isTrash===false && x.isReminder===true;
+        });
+        console.log(notes);
+        displayReminderNotes(notes);
+    })
+
+    // Event Listens when clicked on Archive in sidenav menu and calls displayAllNotes() to display Archived notes
+    Archivenotes.addEventListener('click',()=>{
+        console.log(' showing archived notes ');
+        createnote.style.display = 'none'; // sets the visibility of create-note box to hide
+        document.getElementById('Notes').classList.remove('display-notes');
+        document.getElementById('Notes').classList.add('other-notes');
+        notes=noteArray.filter((x)=>{
+            return x.isTrash===false && x.isArchive===true;
+        });
+        console.log(notes);
+        displayAllNotes(notes);
+    })
+
+     // Event Listens when clicked on Trash in sidenav menu and calls displayAllNotes() to display Trashed notes
+     Trashnotes.addEventListener('click',()=>{
+        console.log(' showing trash notes ');
+        createnote.style.display = 'none'; // sets the visibility of create-note box to hide
+        document.getElementById('Notes').classList.remove('display-notes');
+        document.getElementById('Notes').classList.add('other-notes');
+        notes=noteArray.filter((x)=>{
+            return x.isTrash===true;
+        });
+        console.log(notes);
+        displayTrashNotes(notes);
+    })
+
+    
+    //function displays the filtered notearray from respective event listener using template literals to pass code dynamically
+    function displayAllNotes(Notesdata){
+       document.getElementById('Notes').innerHTML=Notesdata.map((note)=>
+       `<div class="display-div">
+            <div>
+                <p class="p1">${note.title}</p>
+                <P class="p2">${note.description}</P>
+            </div>
+            <div class="card-footer">
+            <img src="/assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/person_add_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/palette_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/image_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/archive_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg" />
+            </div>
+        </div>
+       `
+       ).join(' ');
+    };
+
+    //function to display trash notes
+    function displayTrashNotes(Notesdata){
+       document.getElementById('Notes').innerHTML=Notesdata.map((note)=>
+       `<div class="display-div">
+            <div>
+                <p class="p1">${note.title}</p>
+                <P class="p2">${note.description}</P>
+            </div>
+            <div class="card-footer-trash">
+                
+            </div>
+        </div>
+       `
+       ).join(' ');
+    };
+
+    function displayReminderNotes(Notesdata)
+    { console.log(Notesdata);
+        document.getElementById('Notes').innerHTML=Notesdata.map((note)=>
+        `<div class="display-div">
+             <div>
+                <p class="p1">${note.title}</p>
+                <P class="p2">${note.description}</P>
+            </div>
+            <div class="reminder">
+                <P class="p3">Reminder=${note.isReminder}</p>     
+            </div>
+            <div class="card-footer-trash">
+            <img src="/assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/person_add_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/palette_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/image_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/archive_FILL0_wght400_GRAD0_opsz48.svg" />
+            <img src="/assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg" />
+            </div>
+        </div>
+        `
+    ).join(' ');
+
+   };
 
 })
