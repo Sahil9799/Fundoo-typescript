@@ -324,11 +324,11 @@ visibility: visible;
   border:1px solid lightgray;
 }
 
-.display-div:hover.card-footer{
+.display-div:hover .card-footer{
   visibility: visible;
 }
 
-.display-div:hover.card-footer-trash{
+.display-div:hover .card-footer-trash{
   visibility: visible;
 }
 
